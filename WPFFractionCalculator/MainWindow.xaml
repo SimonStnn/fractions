@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFFractionCalculator"
         mc:Ignorable="d"
-        Title="Fractions Calculator" MinHeight="300" MinWidth="425" Height="350" Width="500" Loaded="Window_Loaded">
+        Title="Fractions Calculator" MinHeight="380" MinWidth="425" Height="380" Width="500" Loaded="Window_Loaded">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="60px"></RowDefinition>
@@ -23,10 +23,6 @@
                         <Setter Property="Margin" Value="5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Button Content="+" Width="28" Height="28" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
-                <Button Content="-" Width="28" Height="28" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
-                <Button Content="*" Width="28" Height="28" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
-                <Button Content="/" Width="28" Height="28" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
@@ -42,23 +38,8 @@
                         <Setter Property="Margin" Value="10,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Grid>
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBox Width="50" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="6" MaxLines="1" BorderBrush="#FFABADB3"/>
-                        <Grid Margin="1,8" Height="2.5" Background="Gray"/>
-                        <TextBox Width="50" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="6" MaxLines="1"/>
-                    </StackPanel>
-                </Grid>
-                <Label Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24"/>
-                <Grid>
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBox Width="50" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="6" MaxLines="1"/>
-                        <Grid Margin="1,8" Height="2.5" Background="Gray"/>
-                        <TextBox Width="50" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="6" MaxLines="1"/>
-                    </StackPanel>
-                </Grid>
             </StackPanel>
-            <Label x:Name="lblDebug" Content="Label" HorizontalAlignment="Left" Margin="31,18,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblDebug" Content="Label" Margin="10,0,0,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         </Grid>
         <Grid Grid.Row="3" Background="AliceBlue">
             <Label Content="Application developed by Simon Stijnen - Student @ Vives - © 2024"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
