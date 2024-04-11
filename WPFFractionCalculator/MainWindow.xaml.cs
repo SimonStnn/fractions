@@ -237,6 +237,9 @@ namespace WPFFractionCalculator
                 Width = 28,
                 Height = 28,
                 FontSize = 18,
+                Padding = (((char)operation <= '/' && (char)operation >= '*') || (char)operation == '=') ?
+                    new Thickness(0, -2, 0, 0) :
+                    new Thickness(0),
                 FontWeight = FontWeights.Bold,
                 VerticalContentAlignment = VerticalAlignment.Center,
                 Content = ((char)operation).ToString(),
@@ -251,9 +254,6 @@ namespace WPFFractionCalculator
                 }
                 activeOperationIndex = position;
                 lblDebug.Content = $"Active Operation: {(char)operation} at index {activeOperationIndex}";
-                RenderFractions();
-                RenderResult(removeLast: false);
-            };
 
             switch (operation)
             {
