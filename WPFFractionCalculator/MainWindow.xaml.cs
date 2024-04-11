@@ -17,12 +17,15 @@ namespace WPFFractionCalculator
     {
         public enum Operation
         {
-            DIK = 'f',
             ADD = '+',
             SUBTRACT = '-',
             MULTIPLY = '*',
             DIVIDE = '/',
             EQUALS = '=',
+            RECIPROCAL = 'R',
+            INVERT = 'I',
+            SIMPLIFY = 'S',
+            NEW = 'N',
         }
 
         private static readonly List<Fraction> fractions = new();
@@ -34,10 +37,6 @@ namespace WPFFractionCalculator
         {
             fractions.Add(new Fraction(-5, 1));
             operations.Add(Operation.ADD);
-            fractions.Add(new Fraction(3, 1));
-            operations.Add(Operation.SUBTRACT);
-            fractions.Add(new Fraction(3, 1));
-            operations.Add(Operation.SUBTRACT);
             fractions.Add(new Fraction(3, 1));
             operations.Add(Operation.SUBTRACT);
             fractions.Add(new Fraction(3, 1));
@@ -123,12 +122,11 @@ namespace WPFFractionCalculator
             // Remove preview items
             OperationsStackPanel.Children.Clear();
 
-            //// Add operations
-            //foreach (Operation operation in Enum.GetValues(typeof(Operation)))
-            //{
-            //    if (operation == Operation.EQUALS) continue;
-            //    OperationsStackPanel.Children.Add(RenderOperation(operation));
-            //}
+            //Add operations
+            OperationsStackPanel.Children.Add(RenderOperation(Operation.RECIPROCAL, -1));
+            OperationsStackPanel.Children.Add(RenderOperation(Operation.INVERT, -2));
+            OperationsStackPanel.Children.Add(RenderOperation(Operation.SIMPLIFY, -3));
+            OperationsStackPanel.Children.Add(RenderOperation(Operation.NEW, -4));
 
             RenderFractions();
             RenderResult(removeLast: false);
@@ -259,25 +257,27 @@ namespace WPFFractionCalculator
 
             switch (operation)
             {
-                case Operation.MULTIPLY:
-                    button.Click += (object sender, RoutedEventArgs e) =>
-                    {
+                    case Operation.RECIPROCAL:
 
-                    };
-                    break;
-                case Operation.DIVIDE:
-                    button.Click += (object sender, RoutedEventArgs e) =>
-                    {
+                        break;
+                    case Operation.INVERT:
 
-                    };
                     break;
-                case Operation.EQUALS:
-                    button.Click += (object sender, RoutedEventArgs e) =>
-                    {
-                        RenderResult();
-                    };
+                    case Operation.SIMPLIFY:
+
+                    break;
+                    case Operation.NEW:
+                        if (fractions.Count > 8) break;
+                        operations.Remove(Operation.EQUALS);
+                        operations.Add(Operation.ADD);
+                        fractions.Add(new Fraction());
+                        operations.Add(Operation.EQUALS);
                     break;
             }
+
+                RenderFractions();
+                RenderResult(removeLast: false);
+            };
             return button;
         }
     }
