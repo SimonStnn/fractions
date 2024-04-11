@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFFractionCalculator"
         mc:Ignorable="d"
-        Title="Fractions Calculator" MinHeight="380" MinWidth="425" Height="380" Width="500" Loaded="Window_Loaded">
+        Title="Fractions Calculator" MinHeight="380" MinWidth="440" Height="380" Width="500" Loaded="Window_Loaded">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="60px"></RowDefinition>
@@ -42,7 +42,14 @@
             <Label x:Name="lblDebug" Content="Label" Margin="10,0,0,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         </Grid>
         <Grid Grid.Row="3" Background="AliceBlue">
-            <Label Content="Application developed by Simon Stijnen - Student @ Vives - © 2024"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Label Content="Application developed by Simon Stijnen - Student @ Vives - © 2024 -"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center">           
+                <Hyperlink NavigateUri="https://github.com/SimonStnn/fractions" RequestNavigate="Hyperlink_RequestNavigate" ToolTip="https://github.com/SimonStnn/fractions">
+                    Github
+                </Hyperlink>
+                </TextBlock>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

@@ -6,6 +6,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Diagnostics;
+using System.Windows.Navigation;
 using FractionsLibrary;
 
 namespace WPFFractionCalculator
@@ -115,6 +117,21 @@ namespace WPFFractionCalculator
             if (removeLast)
                 MainStackPannel.Children.RemoveAt(MainStackPannel.Children.Count - 1);
             MainStackPannel.Children.Add(RenderFraction(result, IsEnabled: false));
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            void OpenLink(string url)
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                };
+
+                Process.Start(psi);
+            }
+            OpenLink(e.Uri.AbsoluteUri);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -255,25 +272,25 @@ namespace WPFFractionCalculator
                 activeOperationIndex = position;
                 lblDebug.Content = $"Active Operation: {(char)operation} at index {activeOperationIndex}";
 
-            switch (operation)
-            {
+                switch (operation)
+                {
                     case Operation.RECIPROCAL:
 
                         break;
                     case Operation.INVERT:
 
-                    break;
+                        break;
                     case Operation.SIMPLIFY:
 
-                    break;
+                        break;
                     case Operation.NEW:
                         if (fractions.Count > 8) break;
                         operations.Remove(Operation.EQUALS);
                         operations.Add(Operation.ADD);
                         fractions.Add(new Fraction());
                         operations.Add(Operation.EQUALS);
-                    break;
-            }
+                        break;
+                }
 
                 RenderFractions();
                 RenderResult(removeLast: false);
