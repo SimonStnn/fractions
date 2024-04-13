@@ -247,15 +247,19 @@ namespace WPFFractionCalculator
                 {
                     fraction.Numerator = Convert.ToInt32(textBoxNumerator.Text);
                     textBoxNumerator.BorderBrush = Brushes.LightGray;
+                    ShowMessage("");
                 }
                 catch (FormatException)
                 {
+                    if (textBoxNumerator.Text != "" && textBoxNumerator.Text != "-")
+                        ShowMessage($"Only numbers are allowed. '{textBoxNumerator.Text}' not allowed", brush: Brushes.Red);
                     fraction.Numerator = 0;
                     textBoxNumerator.BorderBrush = Brushes.Red;
                 }
 
                 if (!numeratorZeroAllowed && fraction.Numerator == 0)
                 {
+                    ShowMessage("Numerator can't be 0 in division.", brush: Brushes.Red);
                     fraction.Numerator = 1;
                     textBoxNumerator.BorderBrush = Brushes.Red;
                 }
@@ -268,9 +272,12 @@ namespace WPFFractionCalculator
                 {
                     fraction.Denominator = Convert.ToInt32(textBoxDenominator.Text);
                     textBoxDenominator.BorderBrush = Brushes.LightGray;
+                    ShowMessage("");
                 }
                 catch (Exception ex) when (ex is FormatException || ex is DivideByZeroException)
                 {
+                    if (textBoxDenominator.Text != "" && textBoxDenominator.Text != "-")
+                        ShowMessage($"0 Not allowed in denominator. '{textBoxNumerator.Text}' not allowed", brush: Brushes.Red);
                     fraction.Denominator = 1;
                     textBoxDenominator.BorderBrush = Brushes.Red;
                 }
