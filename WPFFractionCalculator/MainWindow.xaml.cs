@@ -433,5 +433,13 @@ namespace WPFFractionCalculator
             };
             return button;
         }
+
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            AboutWindow aboutWindow = new();
+            aboutWindow.ShowDialog();
+            this.Show();
+        }
     }
 }
