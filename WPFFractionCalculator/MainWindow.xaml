@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFFractionCalculator"
         mc:Ignorable="d"
-        Title="Fractions Calculator" MinHeight="380" MinWidth="485" Height="380" Width="500" Loaded="Window_Loaded">
+        Title="Fractions Calculator" MinHeight="380" MinWidth="450" Height="380" Width="500" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60px"></RowDefinition>
@@ -44,13 +44,8 @@
         </Grid>
         <Grid Grid.Row="3" Background="AliceBlue">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Label Content="Application developed by Simon Stijnen - Student @ Vives - © 2024 -"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock VerticalAlignment="Center" Margin="-1,0,0,0">           
-                    <Hyperlink NavigateUri="https://github.com/SimonStnn/fractions" RequestNavigate="Hyperlink_RequestNavigate" ToolTip="https://github.com/SimonStnn/fractions">
-                        Github
-                    </Hyperlink>
-                </TextBlock>
-                <Label Content=" - " Margin="-5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="Application developed by Simon Stijnen - Student @ Vives - © 2024"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content=" - " Margin="-10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Button x:Name="btnAbout" Content="About" Margin="-7,0,0,0" HorizontalAlignment="Left" Foreground="#FF0066CC" VerticalAlignment="Center" Background="Transparent" BorderBrush="{x:Null}" Click="BtnAbout_Click"/>
             </StackPanel>
         </Grid>

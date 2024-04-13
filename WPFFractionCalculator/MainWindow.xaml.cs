@@ -170,21 +170,6 @@ namespace WPFFractionCalculator
             MainStackPannel.Children.Add(RenderFraction(result, IsEnabled: false));
         }
 
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-        {
-            static void OpenLink(string url)
-            {
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = url,
-                    UseShellExecute = true
-                };
-
-                Process.Start(psi);
-            }
-            OpenLink(e.Uri.AbsoluteUri);
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Remove preview items

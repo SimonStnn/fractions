@@ -5,12 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFFractionCalculator"
         mc:Ignorable="d"
-        Title="About" Height="256" Width="256">
+        Title="About" Height="200" Width="256" ResizeMode="NoResize">
     <Grid>
         <StackPanel Margin="5">
-            <Label Content="Simon Stijnen"/>
-            <Label Content="© 2024"/>
+            <Label Content="Fractions application" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Developed by Simon Stijnen"/>
+            <Label Content="© 2024 Simon Stijnen"/>
             <TextBlock Text="Fractions program for Object Oriented Programming Evaluatie 3" TextWrapping="Wrap" Padding="5"/>
+            <TextBlock TextWrapping="Wrap" Padding="5">
+                <Run Text="Source code: "/>
+                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/SimonStnn/fractions" ToolTip="https://github.com/SimonStnn/fractions">
+                    Github
+                </Hyperlink>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Window>
