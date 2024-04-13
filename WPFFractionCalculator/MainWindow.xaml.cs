@@ -40,7 +40,7 @@ namespace WPFFractionCalculator
         private static Operation? action;
 
         private const int MIN_FRACTIONS = 1;
-        private const int MAX_FRACTIONS = 80;
+        private const int MAX_FRACTIONS = 8;
 
         private Task? messageTask;
         private CancellationTokenSource? cts;
