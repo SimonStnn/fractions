@@ -39,6 +39,9 @@ namespace WPFFractionCalculator
         private static Fraction result = new();
         private static Operation? action;
 
+        private const int MIN_FRACTIONS = 1;
+        private const int MAX_FRACTIONS = 80;
+
         private Task? messageTask;
         private CancellationTokenSource? cts;
 
@@ -355,14 +358,14 @@ namespace WPFFractionCalculator
 
                         break;
                     case Operation.NEW:
-                        if (fractions.Count > 8) break;
+                        if (fractions.Count > MAX_FRACTIONS) break;
                         operations.Remove(Operation.EQUALS);
                         operations.Add(Operation.ADD);
                         fractions.Add(new Fraction());
                         operations.Add(Operation.EQUALS);
                         break;
                     case Operation.REMOVE:
-                        if (fractions.Count < 2) break;
+                        if (fractions.Count < (MIN_FRACTIONS + 1)) break;
                         fractions.RemoveAt(fractions.Count - 1);
                         operations.RemoveAt(operations.Count - 2);
                         break;
