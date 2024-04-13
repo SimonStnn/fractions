@@ -39,7 +39,8 @@
                     </Style>
                 </StackPanel.Resources>
             </StackPanel>
-            <Label x:Name="lblDebug" Content="Label" Margin="10,0,0,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <Label x:Name="lblInfo" Content="Label" Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <!--<Label x:Name="lblDebug" Content="Label" Margin="10,0,0,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>-->
         </Grid>
         <Grid Grid.Row="3" Background="AliceBlue">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >

@@ -28,6 +28,7 @@ namespace WPFFractionCalculator
             INVERT = 'I',
             SIMPLIFY = 'S',
             NEW = 'N',
+            REMOVE = 'X',
         }
 
         private static readonly List<Fraction> fractions = new();
@@ -57,11 +58,9 @@ namespace WPFFractionCalculator
 
         private Fraction CalculateResult()
         {
-            lblDebug.Content = "";
             result = fractions[0];
             for (int i = 1; i < fractions.Count; i++)
             {
-                lblDebug.Content += $"{result} {(char)operations[i - 1]} {fractions[i]}";
                 Operation operation = operations[i - 1];
                 Fraction fraction = fractions[i];
                 if (operation.Equals(Operation.EQUALS)) break;
@@ -82,7 +81,6 @@ namespace WPFFractionCalculator
                         break;
                 }
             }
-            lblDebug.Content += $" = {result}";
             result = result.Simplify();
             return result;
         }
@@ -107,6 +105,29 @@ namespace WPFFractionCalculator
                         operation.Background = Brushes.Wheat;
                     }
                 }
+            }
+        }
+
+        private void RenderOperations()
+        {
+            // Remove preview items
+            OperationsStackPanel.Children.Clear();
+
+            if (activeOperationIndex < 0)
+            {
+                //Add operations
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.RECIPROCAL, -1));
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.INVERT, -2));
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.SIMPLIFY, -3));
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.REMOVE, -4));
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.NEW, -5));
+            }
+            else
+            {
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.ADD, -1));
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.SUBTRACT, -2));
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.MULTIPLY, -3));
+                OperationsStackPanel.Children.Add(RenderOperation(Operation.DIVIDE, -1));
             }
         }
 
@@ -139,12 +160,7 @@ namespace WPFFractionCalculator
             // Remove preview items
             OperationsStackPanel.Children.Clear();
 
-            //Add operations
-            OperationsStackPanel.Children.Add(RenderOperation(Operation.RECIPROCAL, -1));
-            OperationsStackPanel.Children.Add(RenderOperation(Operation.INVERT, -2));
-            OperationsStackPanel.Children.Add(RenderOperation(Operation.SIMPLIFY, -3));
-            OperationsStackPanel.Children.Add(RenderOperation(Operation.NEW, -4));
-
+            RenderOperations();
             RenderFractions();
             RenderResult(removeLast: false);
         }
@@ -249,18 +265,28 @@ namespace WPFFractionCalculator
             Brush activeBackground = Brushes.Wheat;
             Brush inactiveBackground = Brushes.LightGray;
 
+            string operationText = operation switch
+            {
+                Operation.RECIPROCAL => "1/x",
+                Operation.INVERT => "-x",
+                _ => ((char)operation).ToString(),
+            };
+
             Button button = new()
             {
                 Width = 28,
                 Height = 28,
-                FontSize = 18,
+                FontSize = 16,
                 Padding = (((char)operation <= '/' && (char)operation >= '*') || (char)operation == '=') ?
                     new Thickness(0, -2, 0, 0) :
                     new Thickness(0),
                 FontWeight = FontWeights.Bold,
                 VerticalContentAlignment = VerticalAlignment.Center,
-                Content = ((char)operation).ToString(),
+                Content = operationText,
+                ToolTip = operation.ToString(),
                 IsHitTestVisible = operation != Operation.EQUALS,
+                // Disable remove button if there is only one fraction or new button if there are already 8 fractions
+                IsEnabled = !(operation == Operation.REMOVE && fractions.Count < 2) && !(operation == Operation.NEW && fractions.Count >= 8),
             };
             button.Click += (object sender, RoutedEventArgs e) =>
             {
@@ -269,8 +295,18 @@ namespace WPFFractionCalculator
                 {
                     btn.Background = inactiveBackground;
                 }
-                activeOperationIndex = position;
-                lblDebug.Content = $"Active Operation: {(char)operation} at index {activeOperationIndex}";
+                // If the operation is in the operationstackpanel
+                if (position >= 0)
+                {
+                    button.Background = activeBackground;
+                    activeOperationIndex = position;
+                }
+                else if (activeOperationIndex >= 0)
+                {
+                    // Replace operation at activeOperationIndex with the clicked operation
+                    operations[activeOperationIndex] = operation;
+                    activeOperationIndex = -1;
+                }
 
                 switch (operation)
                 {
@@ -290,8 +326,14 @@ namespace WPFFractionCalculator
                         fractions.Add(new Fraction());
                         operations.Add(Operation.EQUALS);
                         break;
+                    case Operation.REMOVE:
+                        if (fractions.Count < 2) break;
+                        fractions.RemoveAt(fractions.Count - 1);
+                        operations.RemoveAt(operations.Count - 2);
+                        break;
                 }
 
+                RenderOperations();
                 RenderFractions();
                 RenderResult(removeLast: false);
             };
