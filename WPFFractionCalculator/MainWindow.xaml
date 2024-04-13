@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPFFractionCalculator"
         mc:Ignorable="d"
         Title="Fractions Calculator" MinHeight="380" MinWidth="440" Height="380" Width="500" Loaded="Window_Loaded">
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60px"></RowDefinition>
             <RowDefinition Height="40px"></RowDefinition>
