@@ -124,7 +124,7 @@ namespace WPFFractionCalculator
             {
                 Fraction fraction = fractions[i];
                 bool numeratorZeroAllowed = i > 0 ? operations[i - 1] != Operation.DIVIDE : true;
-                MainStackPannel.Children.Add(RenderFraction(fraction, numeratorZeroAllowed: numeratorZeroAllowed));
+                MainStackPannel.Children.Add(RenderFraction(fraction, i, numeratorZeroAllowed: numeratorZeroAllowed));
 
                 if (operations.Count > i)
                 {
@@ -206,10 +206,13 @@ namespace WPFFractionCalculator
             e.Handled = IsTextAllowed(e.Text);
         }
 
-        public Grid RenderFraction(Fraction fraction, bool IsEnabled = true, bool numeratorZeroAllowed = true)
+        public Grid RenderFraction(Fraction fraction, int fractionIndex = -1, bool IsEnabled = true, bool numeratorZeroAllowed = true)
         {
             Grid mainGrid = new();
-
+            Border border = new()
+            {
+                Padding = new Thickness(5),
+            };
             // Create elements
             StackPanel stackPanel = new()
             {
@@ -289,8 +292,44 @@ namespace WPFFractionCalculator
                 RenderResult();
             };
 
+            // Change border if there is an action
+            border.MouseEnter += (sender, e) =>
+            {
+                if (action != null)
+                {
+                    border.Background = Brushes.Wheat;
+                }
+            };
+            border.MouseLeave += (sender, e) =>
+            {
+                border.Background = null;
+            };
+
+            // Handle click event
+            border.MouseLeftButtonDown += (sender, e) =>
+            {
+                if (action == null && fractionIndex != -1 && fractionIndex < fractions.Count) return;
+                switch (action)
+                {
+                    case Operation.RECIPROCAL:
+                        fractions[fractionIndex] = fraction.Reciprocal();
+                        break;
+                    case Operation.INVERT:
+                        fractions[fractionIndex] = fraction.Invert();
+                        break;
+                    case Operation.SIMPLIFY:
+                        fractions[fractionIndex] = fraction.Simplify();
+                        break;
+                }
+                action = null;
+                RenderOperations();
+                RenderFractions();
+                RenderResult(removeLast: false);
+            };
+
             // Add elements to main grid
-            mainGrid.Children.Add(stackPanel);
+            mainGrid.Children.Add(border);
+            border.Child = stackPanel;
             stackPanel.Children.Add(textBoxNumerator);
             stackPanel.Children.Add(separator);
             stackPanel.Children.Add(textBoxDenominator);
@@ -322,9 +361,12 @@ namespace WPFFractionCalculator
                 VerticalContentAlignment = VerticalAlignment.Center,
                 Content = operationText,
                 ToolTip = operation.ToString(),
+                Background = action == operation ? activeBackground : inactiveBackground,
+                // Don't register events to the equals button
                 IsHitTestVisible = operation != Operation.EQUALS,
                 // Disable remove button if there is only one fraction or new button if there are already 8 fractions
-                IsEnabled = !(operation == Operation.REMOVE && fractions.Count < 2) && !(operation == Operation.NEW && fractions.Count >= 8),
+                IsEnabled = !(operation == Operation.REMOVE && fractions.Count < (MIN_FRACTIONS + 1))
+                    && !(operation == Operation.NEW && fractions.Count >= MAX_FRACTIONS),
             };
             button.Click += (object sender, RoutedEventArgs e) =>
             {
@@ -344,6 +386,20 @@ namespace WPFFractionCalculator
                     // Replace operation at activeOperationIndex with the clicked operation
                     operations[activeOperationIndex] = operation;
                     activeOperationIndex = -1;
+                    ShowMessage($"Replaced operation with: {operationText}");
+                }
+                else if (position < 0 && activeOperationIndex < 0)
+                {
+                    if (action == null && (operation == Operation.RECIPROCAL || operation == Operation.INVERT || operation == Operation.SIMPLIFY))
+                    {
+                        ShowMessage($"Click a fraction to {operation.ToString().ToLower()}.");
+                        action = operation;
+                    }
+                    else
+                    {
+                        // Toggle action
+                        action = null;
+                    }
                 }
 
                 switch (operation)
