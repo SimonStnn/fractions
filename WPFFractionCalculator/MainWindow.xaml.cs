@@ -33,15 +33,13 @@ namespace WPFFractionCalculator
 
         private static readonly List<Fraction> fractions = new();
         private static readonly List<Operation> operations = new();
-        private int activeOperationIndex = -1;
+        private static int activeOperationIndex = -1;
         private static Fraction result = new();
 
         public MainWindow()
         {
             fractions.Add(new Fraction(-5, 1));
             operations.Add(Operation.ADD);
-            fractions.Add(new Fraction(3, 1));
-            operations.Add(Operation.SUBTRACT);
             fractions.Add(new Fraction(3, 1));
             operations.Add(Operation.EQUALS);
             InitializeComponent();
@@ -56,7 +54,7 @@ namespace WPFFractionCalculator
             RenderFractions();
         }
 
-        private Fraction CalculateResult()
+        private static Fraction CalculateResult()
         {
             result = fractions[0];
             for (int i = 1; i < fractions.Count; i++)
@@ -94,7 +92,8 @@ namespace WPFFractionCalculator
             for (int i = 0; i < fractions.Count; i++)
             {
                 Fraction fraction = fractions[i];
-                MainStackPannel.Children.Add(RenderFraction(fraction));
+                bool numeratorZeroAllowed = i > 0 ? operations[i - 1] != Operation.DIVIDE : true;
+                MainStackPannel.Children.Add(RenderFraction(fraction, numeratorZeroAllowed: numeratorZeroAllowed));
 
                 if (operations.Count > i)
                 {
@@ -142,7 +141,7 @@ namespace WPFFractionCalculator
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            void OpenLink(string url)
+            static void OpenLink(string url)
             {
                 ProcessStartInfo psi = new ProcessStartInfo
                 {
@@ -175,7 +174,7 @@ namespace WPFFractionCalculator
             e.Handled = IsTextAllowed(e.Text);
         }
 
-        public Grid RenderFraction(Fraction fraction, bool IsEnabled = true)
+        public Grid RenderFraction(Fraction fraction, bool IsEnabled = true, bool numeratorZeroAllowed = true)
         {
             Grid mainGrid = new();
 
@@ -234,6 +233,13 @@ namespace WPFFractionCalculator
                     fraction.Numerator = 0;
                     textBoxNumerator.BorderBrush = Brushes.Red;
                 }
+
+                if (!numeratorZeroAllowed && fraction.Numerator == 0)
+                {
+                    fraction.Numerator = 1;
+                    textBoxNumerator.BorderBrush = Brushes.Red;
+                }
+
                 RenderResult();
             };
             textBoxDenominator.TextChanged += (sender, e) =>
