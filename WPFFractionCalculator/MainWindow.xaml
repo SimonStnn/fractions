@@ -45,13 +45,13 @@
         <Grid Grid.Row="3" Background="AliceBlue">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Label Content="Application developed by Simon Stijnen - Student @ Vives - © 2024 -"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock VerticalAlignment="Center">           
-                <Hyperlink NavigateUri="https://github.com/SimonStnn/fractions" RequestNavigate="Hyperlink_RequestNavigate" ToolTip="https://github.com/SimonStnn/fractions">
-                    Github
-                </Hyperlink>
+                <TextBlock VerticalAlignment="Center" Margin="-1,0,0,0">           
+                    <Hyperlink NavigateUri="https://github.com/SimonStnn/fractions" RequestNavigate="Hyperlink_RequestNavigate" ToolTip="https://github.com/SimonStnn/fractions">
+                        Github
+                    </Hyperlink>
                 </TextBlock>
-                <Label Content=" - "  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="btnAbout" Content="About" HorizontalAlignment="Left" Foreground="#FF0066CC" VerticalAlignment="Center" Background="Transparent" BorderBrush="{x:Null}" Click="BtnAbout_Click"/>
+                <Label Content=" - " Margin="-5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button x:Name="btnAbout" Content="About" Margin="-7,0,0,0" HorizontalAlignment="Left" Foreground="#FF0066CC" VerticalAlignment="Center" Background="Transparent" BorderBrush="{x:Null}" Click="BtnAbout_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
