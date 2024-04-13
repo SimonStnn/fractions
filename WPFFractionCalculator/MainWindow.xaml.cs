@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Diagnostics;
 using System.Windows.Navigation;
 using FractionsLibrary;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace WPFFractionCalculator
 {
@@ -35,6 +37,10 @@ namespace WPFFractionCalculator
         private static readonly List<Operation> operations = new();
         private static int activeOperationIndex = -1;
         private static Fraction result = new();
+        private static Operation? action;
+
+        private Task? messageTask;
+        private CancellationTokenSource? cts;
 
         public MainWindow()
         {
@@ -43,6 +49,28 @@ namespace WPFFractionCalculator
             fractions.Add(new Fraction(3, 1));
             operations.Add(Operation.EQUALS);
             InitializeComponent();
+        }
+
+        public async void ShowMessage(string message, int delay = 3000, SolidColorBrush? brush = null)
+        {
+            // Cancel previous message task and create a new one
+            cts?.Cancel();
+            cts = new CancellationTokenSource();
+            messageTask = Task.Delay(delay, cts.Token);
+            try
+            {
+                // Set message and color
+                brush ??= Brushes.Black;
+                lblInfo.Foreground = brush;
+                lblInfo.Content = message;
+
+                // Wait for the delay to finish and clear the message
+                await messageTask;
+                messageTask = null;
+                lblInfo.Content = "";
+            }
+            catch (TaskCanceledException)
+            { }
         }
 
         public void AddFraction(Operation operation, Fraction fraction)
@@ -162,6 +190,7 @@ namespace WPFFractionCalculator
             RenderOperations();
             RenderFractions();
             RenderResult(removeLast: false);
+            ShowMessage("Welcome to Fraction Calculator", 5000, Brushes.Green);
         }
 
         private static readonly Regex num_regex = new("[^0-9-]+"); //regex that matches disallowed text
