@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFFractionCalculator"
         mc:Ignorable="d"
-        Title="Fractions Calculator" MinHeight="380" MinWidth="440" Height="380" Width="500" Loaded="Window_Loaded">
+        Title="Fractions Calculator" MinHeight="380" MinWidth="485" Height="380" Width="500" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60px"></RowDefinition>
