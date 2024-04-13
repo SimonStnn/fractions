@@ -14,7 +14,6 @@
             <RowDefinition Height="30px"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="AliceBlue">
-            <Button x:Name="btnAbout" Content="About" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="30" Width="60" Background="AliceBlue" BorderBrush="{x:Null}" Click="BtnAbout_Click"/>
             <Label Content="Fractions" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold"/>
         </Grid>
         <Grid Grid.Row="1" Background="Beige">
@@ -51,6 +50,8 @@
                     Github
                 </Hyperlink>
                 </TextBlock>
+                <Label Content=" - "  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button x:Name="btnAbout" Content="About" HorizontalAlignment="Left" Foreground="#FF0066CC" VerticalAlignment="Center" Background="Transparent" BorderBrush="{x:Null}" Click="BtnAbout_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
