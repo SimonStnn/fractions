@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFFractionCalculator"
         mc:Ignorable="d"
-        Title="AboutWindow" Height="450" Width="800">
+        Title="About" Height="256" Width="256">
     <Grid>
-        
+        <StackPanel Margin="5">
+            <Label Content="Simon Stijnen"/>
+            <Label Content="© 2024"/>
+            <TextBlock Text="Fractions program for Object Oriented Programming Evaluatie 3" TextWrapping="Wrap" Padding="5"/>
+        </StackPanel>
     </Grid>
 </Window>
