@@ -8,6 +8,7 @@ Fractions program for Object Oriented Programming Evaluatie 3
 
 - [Table of Contents](#table-of-contents)
 - [Author](#author)
+- [Assignement](#assignement)
 - [Fractions Library](#fractions-library)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -23,6 +24,10 @@ Fractions program for Object Oriented Programming Evaluatie 3
 ## Author
 
 This application was created by [Simon Stijnen](https://github.com/SimonStnn). Student at [Vives University Of Applied Sciences](https://www.vives.be/nl/over-vives/campussen/vives-brugge-xaverianenstraat). Studying [Electronics - ICT](https://www.vives.be/nl/technology/elektronica-ict).
+
+## Assignement
+
+This project is the 3rd assignment for the Object Oriented Programming course. The assignment details can be found in the [assignment PDF](./Assignment%20Permanente%20evaluatie%203.pdf).
 
 ## Fractions Library
 
