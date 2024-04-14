@@ -70,8 +70,8 @@ Fraction d = a.Subtract(b);
 Fraction e = a.Multiply(b);
 Fraction f = a.Divide(b);
 
-Console.WriteLine($"a = {a}"); // Output: a = 1/2
-Console.WriteLine($"b = {b}"); // Output: b = 1/3
+Console.WriteLine($"a = {a}");     // Output: a = 1/2
+Console.WriteLine($"b = {b}");     // Output: b = 1/3
 Console.WriteLine($"a + b = {c}"); // Output: a + b = 5/6
 Console.WriteLine($"a - b = {d}"); // Output: a - b = 1/6
 Console.WriteLine($"a * b = {e}"); // Output: a * b = 1/6
