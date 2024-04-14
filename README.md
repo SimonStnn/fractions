@@ -118,30 +118,7 @@ The [FractionsConsoleApp](./FranctionsConsoleApp/) is a simple console applicati
 
 When starting the application you will be greeted with the following menu:
 
-```plaintext
-Notes
-Note that each method of the Fraction class will return a new instance of
-the Fraction class. The object it was called on will not change.
-
-Current fraction is: 1/1
-
-add <fraction>          Add a fraction to the current fraction.
-subtract <fraction>     Subtract a fraction to the current fraction.
-multiply <fraction>     Multiply a fraction to the current fraction.
-divide <fraction>       Divide a fraction to the current fraction.
-numerator               Display the numenator of the current fraction.
-denominator             Display the denominator of the current fraction.
-reciprocal              Switch the numerator and denominator of the fraction.
-simplify                Simplify the fraction.
-result                  Write the result of the fraction to the console.
-new <fraction>          Update the current fraction.
-reset                   Reset the current fraction back to the default (1/1).
-clear                   Clear the screen.
-help                    Display this menu.
-exit                    Exit the application.
-
-1/1 >
-```
+![Console Application Menu](./resources/images/ConsoleApplication.png)
 
 It first displays a note about the `Fraction` class and the current fraction, which is initialized to `1/1`. It then displays a list of commands that you can use to perform arithmetic operations on fractions.
 
