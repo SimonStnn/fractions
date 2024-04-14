@@ -24,6 +24,10 @@ Fractions program for Object Oriented Programming Evaluatie 3
 - [Console Application](#console-application)
 - [WPF Application](#wpf-application)
 - [xUnit Tests](#xunit-tests)
+- [Future Improvements](#future-improvements)
+  - [FractionLibrary](#fractionlibrary)
+  - [FractionsConsoleApp](#fractionsconsoleapp)
+  - [WPFFractionCalculator](#wpffractioncalculator)
 
 ## Author
 
@@ -252,3 +256,24 @@ Here are the tests included in the `UnitTestFraction` class:
 Each test is marked with the `[Fact]` attribute, indicating that it is a test method that should be run by the test runner.
 
 To run these tests, you can use the `dotnet test` command in the terminal, or use the test runner in Visual Studio.
+
+## Future Improvements
+
+Here are some ideas for future improvements.
+
+### FractionLibrary
+
+- Handle operations between a fraction and another fraction.
+- Handle operations between a fraction and integer.
+- Let the operation methods take in any number of fractions.
+
+### FractionsConsoleApp
+
+- Add a way to save and load fractions.
+- Add tab completion for commands.
+
+### WPFFractionCalculator
+
+- Clear button to clear all fractions.
+- Give about window a better layout.
+- Add a history of operations.
