@@ -4,6 +4,10 @@
 Fractions program for Object Oriented Programming Evaluatie 3
 </p>
 
+<https://github.com/SimonStnn/fractions/assets/113850648/cba95a9d-36fa-4e62-b397-9790e10c5835>
+
+> This is a demo of the [WPF Fraction calculator](#wpf-application).
+
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
