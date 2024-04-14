@@ -16,6 +16,7 @@ Fractions program for Object Oriented Programming Evaluatie 3
     - [Constructors](#constructors)
     - [Methods](#methods)
 - [Console Application](#console-application)
+- [WPF Application](#wpf-application)
 
 ## Fractions Library
 
@@ -178,3 +179,39 @@ To display the result of the current fraction, you can enter `result`:
 ```
 
 Now you have a basic understanding of how to use the console application. You can explore more commands by entering `help` in the console.
+
+## WPF Application
+
+The [FractionsWpfApp](./FractionsWpfApp/) is a simple WPF application that demonstrates the usage of the Fractions library. The application is a GUI calculator that allows the user to perform basic arithmetic operations on fractions.
+
+When starting the application you will be greeted with the following window:
+
+![WPF Application Window](./resources/images/InitalWindow.png)
+
+The window has a basic fraction operation already set up. `3/4 + 1/2 = 5/4`. You can change the operation by entering new fractions in the text boxes and selecting an operation from the dropdown.
+
+The result is always calculated automatically.
+
+You can change the operation by clicking on it and then selecting a new operation from the operation options. Lets change the operation from `+` to `-`.
+
+![WPF Application Window](./resources/images/ChangingOperation1.png)
+
+Now we have clicked the `+` operation it has been highlighted and we can now select the `-` operation. The result will be calculated automatically.
+
+![WPF Application Window](./resources/images/ChangingOperation2.png)
+
+Now lets invert the first fraction. We can do this by clicking on the `-x` button and then clicking on the first fraction. After clicking on the `-x` button we see it gets highlighted and when we hover over the first fraction it also gets highlighted. When we click on the first fraction it will be inverted and the result will be calculated automatically.
+
+![WPF Application Window](./resources/images/InvertingFraction.png)
+
+We can also add a new fraction to the operation. We can do this by clicking on the `N` button. After clicking on the `N` button, `1/1` will be added. You can add up to 8 fractions.
+
+![WPF Application Window](./resources/images/8Fractions.png)
+
+If you want to remove a fraction you can click on the `X` button. After clicking on the `X` button the fraction will be removed. There always has to be at least one fraction in the operation.
+
+![WPF Application Window](./resources/images/1Fraction.png)
+
+You can test the other operations yourself by cloning this repo.
+
+Have fun with the Fractions Calculator!
