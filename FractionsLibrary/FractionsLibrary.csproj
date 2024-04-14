@@ -1,9 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<PackageId>SimonStnnFractions</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Simon Stijnen</Authors>
+		<Description>A library for working with fractions. Object Oriented Programming Evaluatie 3 Vives</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/SimonStnn/fractions</PackageProjectUrl>
+		<Copyright>Copyright © 2024 Simon Stijnen</Copyright>
+		<RepositoryUrl>https://github.com/SimonStnn/fractions</RepositoryUrl>
+		<PackageTags>csharp;dotnet;fractions</PackageTags>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 
 </Project>
