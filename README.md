@@ -8,6 +8,7 @@ Fractions program for Object Oriented Programming Evaluatie 3
 
 - [Table of Contents](#table-of-contents)
 - [Fractions Library](#fractions-library)
+  - [Installation](#installation)
   - [UML Diagram](#uml-diagram)
     - [Atributes](#atributes)
     - [Properties](#properties)
@@ -17,6 +18,16 @@ Fractions program for Object Oriented Programming Evaluatie 3
 ## Fractions Library
 
 The Fractions library is a simple library that allows you to perform basic arithmetic operations on fractions. The library provides a `Fraction` class that represents a fraction with a numerator and a denominator. The `Fraction` class provides methods to add, subtract, multiply, and divide fractions, as well as methods to simplify and invert fractions.
+
+### Installation
+
+To run this application you need to have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) and [Visual Studio](https://visualstudio.microsoft.com/) installed on your machine.
+
+The [FractionsLibrary](./FractionsLibrary/) is also published to [NuGet](https://www.nuget.org/packages/SimonStnnFractions). You can install it using the following command:
+
+```bash
+dotnet add package SimonStnnFractions --version 1.0.0
+```
 
 ### UML Diagram
 
