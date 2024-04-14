@@ -9,6 +9,7 @@ Fractions program for Object Oriented Programming Evaluatie 3
 - [Table of Contents](#table-of-contents)
 - [Fractions Library](#fractions-library)
   - [Installation](#installation)
+  - [Usage](#usage)
   - [UML Diagram](#uml-diagram)
     - [Atributes](#atributes)
     - [Properties](#properties)
@@ -27,6 +28,35 @@ The [FractionsLibrary](./FractionsLibrary/) is also published to [NuGet](https:/
 
 ```bash
 dotnet add package SimonStnnFractions --version 1.0.0
+```
+
+### Usage
+
+To use the library in your project, add the following `using` directive to your code:
+
+```csharp
+using FractionsLibrary;
+```
+
+You can then create a new `Fraction` object and perform arithmetic operations on it:
+
+Here is an example of how to use the Fractions library:
+
+```csharp
+Fraction a = new Fraction(1, 2);
+Fraction b = new Fraction(1, 3);
+
+Fraction c = a.Add(b);
+Fraction d = a.Subtract(b);
+Fraction e = a.Multiply(b);
+Fraction f = a.Divide(b);
+
+Console.WriteLine($"a = {a}"); // Output: a = 1/2
+Console.WriteLine($"b = {b}"); // Output: b = 1/3
+Console.WriteLine($"a + b = {c}"); // Output: a + b = 5/6
+Console.WriteLine($"a - b = {d}"); // Output: a - b = 1/6
+Console.WriteLine($"a * b = {e}"); // Output: a * b = 1/6
+Console.WriteLine($"a / b = {f}"); // Output: a / b = 3/2
 ```
 
 ### UML Diagram
