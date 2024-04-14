@@ -7,6 +7,7 @@ Fractions program for Object Oriented Programming Evaluatie 3
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
+- [Author](#author)
 - [Fractions Library](#fractions-library)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -18,6 +19,10 @@ Fractions program for Object Oriented Programming Evaluatie 3
 - [Console Application](#console-application)
 - [WPF Application](#wpf-application)
 - [xUnit Tests](#xunit-tests)
+
+## Author
+
+This application was created by [Simon Stijnen](https://github.com/SimonStnn). Student at [Vives University Of Applied Sciences](https://www.vives.be/nl/over-vives/campussen/vives-brugge-xaverianenstraat). Studying [Electronics - ICT](https://www.vives.be/nl/technology/elektronica-ict).
 
 ## Fractions Library
 
