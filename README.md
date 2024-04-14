@@ -48,7 +48,7 @@ To run this application you need to have the [.NET 6.0 SDK](https://dotnet.micro
 The [FractionsLibrary](./FractionsLibrary/) is also published to [NuGet](https://www.nuget.org/packages/SimonStnnFractions). You can install it using the following command:
 
 ```bash
-dotnet add package SimonStnnFractions --version 1.0.0
+dotnet add package SimonStnnFractions
 ```
 
 For more installation options, please refer to the [NuGet package page](https://www.nuget.org/packages/SimonStnnFractions).
