@@ -17,6 +17,7 @@ Fractions program for Object Oriented Programming Evaluatie 3
     - [Methods](#methods)
 - [Console Application](#console-application)
 - [WPF Application](#wpf-application)
+- [xUnit Tests](#xunit-tests)
 
 ## Fractions Library
 
@@ -215,3 +216,25 @@ If you want to remove a fraction you can click on the `X` button. After clicking
 You can test the other operations yourself by cloning this repo.
 
 Have fun with the Fractions Calculator!
+
+## xUnit Tests
+
+The [FractionsTests](./FractionsTests/) project contains unit tests for the Fractions library. The main test class is `UnitTestFraction` in the `TestFractionLibrary` namespace.
+
+Here are the tests included in the `UnitTestFraction` class:
+
+- `TestConstructor`: Tests the constructor of the `Fraction` class.
+- `TestProperties`: Tests the properties of the `Fraction` class.
+- `TestAdd`: Tests the addition operation of the `Fraction` class.
+- `TestSubtract`: Tests the subtraction operation of the `Fraction` class.
+- `TestMultiply`: Tests the multiplication operation of the `Fraction` class.
+- `TestDevide`: Tests the division operation of the `Fraction` class.
+- `TestReciprocal`: Tests the reciprocal operation of the `Fraction` class.
+- `TestInvert`: Tests the inversion operation of the `Fraction` class.
+- `TestSimplify`: Tests the simplification operation of the `Fraction` class.
+- `TestResult`: Tests the result operation of the `Fraction` class.
+- `TestToString`: Tests the `ToString` method of the `Fraction` class.
+
+Each test is marked with the `[Fact]` attribute, indicating that it is a test method that should be run by the test runner.
+
+To run these tests, you can use the `dotnet test` command in the terminal, or use the test runner in Visual Studio.
