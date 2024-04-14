@@ -30,6 +30,8 @@ The [FractionsLibrary](./FractionsLibrary/) is also published to [NuGet](https:/
 dotnet add package SimonStnnFractions --version 1.0.0
 ```
 
+For more installation options, please refer to the [NuGet package page](https://www.nuget.org/packages/SimonStnnFractions).
+
 ### Usage
 
 To use the library in your project, add the following `using` directive to your code:
