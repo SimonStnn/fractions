@@ -15,6 +15,7 @@ Fractions program for Object Oriented Programming Evaluatie 3
     - [Properties](#properties)
     - [Constructors](#constructors)
     - [Methods](#methods)
+- [Console Application](#console-application)
 
 ## Fractions Library
 
@@ -110,3 +111,93 @@ class Fraction{
 - `Simplify() Fraction`: Simplifies the current fraction.
 - `Result() double`: Returns the result of the fraction as a double.
 - `ToString() string`: Returns the string representation of the fraction in the format `numerator/denominator`. (e.g. `1/2`)
+
+## Console Application
+
+The [FractionsConsoleApp](./FranctionsConsoleApp/) is a simple console application that demonstrates the usage of the Fractions library. The application is a CLI calculator that allows the user to perform basic arithmetic operations on fractions.
+
+When starting the application you will be greeted with the following menu:
+
+```plaintext
+Notes
+Note that each method of the Fraction class will return a new instance of
+the Fraction class. The object it was called on will not change.
+
+Current fraction is: 1/1
+
+add <fraction>          Add a fraction to the current fraction.
+subtract <fraction>     Subtract a fraction to the current fraction.
+multiply <fraction>     Multiply a fraction to the current fraction.
+divide <fraction>       Divide a fraction to the current fraction.
+numerator               Display the numenator of the current fraction.
+denominator             Display the denominator of the current fraction.
+reciprocal              Switch the numerator and denominator of the fraction.
+simplify                Simplify the fraction.
+result                  Write the result of the fraction to the console.
+new <fraction>          Update the current fraction.
+reset                   Reset the current fraction back to the default (1/1).
+clear                   Clear the screen.
+help                    Display this menu.
+exit                    Exit the application.
+
+1/1 >
+```
+
+It first displays a note about the `Fraction` class and the current fraction, which is initialized to `1/1`. It then displays a list of commands that you can use to perform arithmetic operations on fractions.
+
+After the menu, it displays a prompt `1/1 >`. This is the currect fraction you will perform operations on. You can then enter a command followed by a fraction to perform an operation. For example, to add `1/2` to the current fraction, you can enter `add 1/2`.
+
+```plaintext
+1/1 > add 1/2
+3/2 >
+```
+
+As a result we got `3/2` which is the result of `1/1 + 1/2`. Other operations can be performed in the same way.
+
+You can also display info about the current fraction by entering `numerator` or `denominator`:
+
+```plaintext
+3/2 > numerator
+3
+3/2 > denominator
+2
+3/2 >
+```
+
+To switch the numerator and denominator of the current fraction, you can enter `reciprocal`:
+
+```plaintext
+3/2 > reciprocal
+2/3 >
+```
+
+Or you can invert the current fraction by entering `invert`:
+
+```plaintext
+2/3 > invert
+-2/3 >
+```
+
+If you want to start over with a new fraction, you can enter `new <fraction>`. For example, to set the current fraction to `2/8`, you can enter `new 2/8`:
+
+```plaintext
+-2/3 > new 2/8
+2/8 >
+```
+
+Now we can perform `simpify` to simplify the fraction:
+
+```plaintext
+2/8 > simplify
+1/4 >
+```
+
+To display the result of the current fraction, you can enter `result`:
+
+```plaintext
+1/4 > result
+0.25
+1/4 >
+```
+
+Now you have a basic understanding of how to use the console application. You can explore more commands by entering `help` in the console.
