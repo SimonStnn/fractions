@@ -103,6 +103,7 @@ namespace FranctionsConsoleApp
 			Console.WriteLine("denominator\t\tDisplay the denominator of the current fraction.");
 			// Other fraction operations
 			Console.WriteLine("reciprocal\t\tSwitch the numerator and denominator of the fraction.");
+			Console.WriteLine("invert\t\t\tInvert the fraction.");
 			Console.WriteLine("simplify\t\tSimplify the fraction.");
 			Console.WriteLine("result\t\t\tWrite the result of the fraction to the console.");
 			// Application operations
@@ -166,6 +167,9 @@ namespace FranctionsConsoleApp
 						case "reciprocal":
 							fraction = fraction.Reciprocal();
 							break;
+						case "invert":
+                            fraction = fraction.Invert();
+                            break;
 						case "simplify":
 							fraction = fraction.Simplify();
 							break;
