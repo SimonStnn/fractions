@@ -140,7 +140,7 @@ When starting the application you will be greeted with the following menu:
 
 ![Console Application Menu](./resources/images/ConsoleApplication.png)
 
-It first displays a note about the `Fraction` class and the current fraction, which is initialized to `1/1`. It then displays a list of commands that you can use to perform arithmetic operations on fractions.
+It first displays a welcome message. Then it shows the two constructors of the `Fraction` class. The first constructor initializes the fraction to `1/1`, and the second constructor initializes the fraction to the given numerator and denominator. After that, it displays the different methods of the `Fraction` class that you can use to perform arithmetic operations on fractions. All with examples on how to use them. Then a note about the `Fraction` class and the current fraction, and finally a list of commands you can use in the console.
 
 After the menu, it displays a prompt `1/1 >`. This is the currect fraction you will perform operations on. You can then enter a command followed by a fraction to perform an operation. For example, to add `1/2` to the current fraction, you can enter `add 1/2`.
 
